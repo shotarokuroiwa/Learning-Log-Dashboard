@@ -34,7 +34,7 @@ return (
       <Route path="/" element={<Home logs={logs}/>}/>
       <Route path="/logs" element={<LogsListPage logs={logs} />}/>
       <Route path="/logs/new" element={<CreateLogPage setLogs={setLogs} />}/>
-      <Route path="/logs/:id" element={<LogDetailsPage logs={logs} />}/>
+      <Route path="/logs/:id" element={<LogDetailsPage logs={logs} setLogs={setLogs} />}/>
       <Route path="/logs/:id/edit" element={<LogEditPage logs={logs} setLogs={setLogs} />}/>
       <Route path="*" element={<NotFoundPage />}/>
     </Routes>
