@@ -31,11 +31,11 @@ function App() {
 return (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />}/>
+      <Route path="/" element={<Home logs={logs}/>}/>
       <Route path="/logs" element={<LogsListPage logs={logs} />}/>
-      <Route path="/logs/new" element={<CreateLogPage />}/>
-      <Route path="/logs/:id" element={<LogDetailsPage />}/>
-      <Route path="/logs/:id/edit" element={<LogEditPage />}/>
+      <Route path="/logs/new" element={<CreateLogPage setLogs={setLogs} />}/>
+      <Route path="/logs/:id" element={<LogDetailsPage logs={logs} />}/>
+      <Route path="/logs/:id/edit" element={<LogEditPage logs={logs} setLogs={setLogs} />}/>
       <Route path="*" element={<NotFoundPage />}/>
     </Routes>
   </BrowserRouter>
