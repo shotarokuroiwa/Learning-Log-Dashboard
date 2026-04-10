@@ -87,7 +87,7 @@ const Home = ({ logs }) => {
         <ul>
           {tags.recentLogs.map(log => (
             <li key={log.id}>
-              <Link to={`/log/${log.id}`}>
+              <Link to={`/logs/${log.id}`}>
                 {log.date}: {log.title}
               </Link>
             </li>
