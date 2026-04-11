@@ -53,7 +53,7 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
           </label>
         </div>
         <button type="submit">{buttonText}</button>
-        <Link to="/logs">戻る</Link>
+        <Link to="/logs">キャンセル</Link>
     </form>
   )
 }

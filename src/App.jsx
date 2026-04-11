@@ -7,7 +7,7 @@ import LogsListPage from './pages/LogsListPage'
 import NotFoundPage from './pages/NotFoundPage'
 import { useEffect, useState } from 'react'
 import fetchLogs from './api/api'
-import useLocalStorage from './hocks/useLocalStrage'
+import useLocalStorage from './hooks/useLocalStrage'
 import Layout from './components/Layout'
 
 function App() {

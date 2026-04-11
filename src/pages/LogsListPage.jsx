@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import useLogsFilter from '../hocks/useLogsFilter';
+import useLogsFilter from '../hooks/useLogsFilter';
 
 function LogsListPage({ logs }) {
   const [searchParams] = useSearchParams();
