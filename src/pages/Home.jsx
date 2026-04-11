@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const Home = ({ logs }) => {
+  useDocumentTitle("ダッシュボード")
   const tags = useMemo(() => {
     // 合計時間
     const totalMinutes = logs.reduce((sum, log) => sum + log.minutes,0);

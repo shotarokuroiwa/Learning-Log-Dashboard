@@ -1,7 +1,9 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { CATEGORYS, STATUS_LABELS} from '../utils/labels'
+import { CATEGORIES, STATUS_LABELS} from '../utils/labels'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const LogDetailsPage = ({ logs, setLogs }) => {
+  useDocumentTitle("詳細")
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -29,7 +31,7 @@ const LogDetailsPage = ({ logs, setLogs }) => {
       <div className='detail-card'>
         <p>日付: {log.date}</p>
         <p>時間: {log.minutes}</p>
-        <p>カテゴリー: {CATEGORYS[log.category]}</p>
+        <p>カテゴリー: {CATEGORIES[log.category]}</p>
         <p>ステータス: {STATUS_LABELS[log.status]}</p>
         <p>メモ: {log.memo}</p>
         <p>お気に入り: {log.favorite ? "★" : "☆" }</p>
@@ -38,7 +40,7 @@ const LogDetailsPage = ({ logs, setLogs }) => {
       <div className='actions'>
         <button onClick={() => navigate(`/logs/${log.id}/edit`)}>編集する</button>
         <button onClick={handleDelete}>削除する</button>
-        <button onClick={() => navigate(-1)}>戻る</button>
+        <button onClick={() => navigate(`/logs`)}>戻る</button>
       </div>
     </div>
   ) 

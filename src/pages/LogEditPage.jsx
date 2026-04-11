@@ -1,8 +1,9 @@
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { useState } from 'react'
 import LogForm from '../components/LogForm';
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const LogEditPage = ({ logs, setLogs }) => {
+  useDocumentTitle("編集")
   const { id } = useParams();
   const navigate = useNavigate();
 

@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import useLogsFilter from '../hooks/useLogsFilter';
 import { CATEGORY_LABELS } from '../utils/labels'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 function LogsListPage({ logs }) {
+  useDocumentTitle("ログリスト")
   const [searchParams] = useSearchParams();
   const query = searchParams.get('search') || "";
   const [inputValue, setInputValue] = useState(query);

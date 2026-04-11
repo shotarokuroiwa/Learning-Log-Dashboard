@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import LogForm from "../components/LogForm";
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const CreateLogPage = ({ setLogs }) => {
+  useDocumentTitle("新規作成");
   const navigate =useNavigate();
 
   const handleCreate = (input) => {

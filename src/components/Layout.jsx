@@ -16,7 +16,7 @@ const Layout = () => {
         flexDirection: 'column',
         gap: '15px'
       }}>
-        <h2>Learning Log</h2>
+        <h2>Learning Log Dashboard</h2>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <Link to="/">ダッシュボード</Link>
           <Link to="/logs">ログ一覧</Link>

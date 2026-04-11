@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const NotFoundPage = () => {
+  useDocumentTitle("404")
   return (
     <div>
       <h1>404 - ページが見つかりませんでした</h1>
