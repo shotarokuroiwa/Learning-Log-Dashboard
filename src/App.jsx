@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import { useEffect, useState } from 'react'
 import fetchLogs from './api/api'
 import useLocalStorage from './hocks/useLocalStrage'
+import Layout from './components/Layout'
 
 function App() {
   const [logs, setLogs] = useLocalStorage('logs', []);
@@ -36,11 +37,13 @@ function App() {
 return (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home logs={logs}/>}/>
-      <Route path="/logs" element={<LogsListPage logs={logs} />}/>
-      <Route path="/logs/new" element={<CreateLogPage setLogs={setLogs} />}/>
-      <Route path="/logs/:id" element={<LogDetailsPage logs={logs} setLogs={setLogs} />}/>
-      <Route path="/logs/:id/edit" element={<LogEditPage logs={logs} setLogs={setLogs} />}/>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home logs={logs}/>}/>
+        <Route path="/logs" element={<LogsListPage logs={logs} />}/>
+        <Route path="/logs/new" element={<CreateLogPage setLogs={setLogs} />}/>
+        <Route path="/logs/:id" element={<LogDetailsPage logs={logs} setLogs={setLogs} />}/>
+        <Route path="/logs/:id/edit" element={<LogEditPage logs={logs} setLogs={setLogs} />}/>
+      </Route>
       <Route path="*" element={<NotFoundPage />}/>
     </Routes>
   </BrowserRouter>
