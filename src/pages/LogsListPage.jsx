@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import useLogsFilter from '../hooks/useLogsFilter';
+import { CATEGORY_LABELS } from '../utils/labels'
 
 function LogsListPage({ logs }) {
   const [searchParams] = useSearchParams();
@@ -27,10 +28,24 @@ function LogsListPage({ logs }) {
           value={searchParams.get('category') || 'all'}
           onChange={(e) => updateParams('category', e.target.value)}
         >
-          <option value="all">すべてのカテゴリ</option>
-          <option value="tech">技術学習</option>
-          <option value="remind">リマインド</option>
-          <option value="meeting">ミーティング</option>
+          <option value="all">カテゴリ</option>
+          {CATEGORY_LABELS.map((c) => (
+            <option key={c.value} value={c.value}>
+              {c.label}
+            </option>
+          ))}
+
+          </select>
+
+        <select
+          value={searchParams.get('status') || 'all'}
+          onChange={(e) => updateParams('status', e.target.value)}
+          aria-label="進捗で絞り込み"
+        >
+          <option value="all">ステータス</option>
+          <option value="planned">計画中</option>
+          <option value="doing">進行中</option>
+          <option value="done">完了</option>
         </select>
 
         <select 
@@ -52,6 +67,7 @@ function LogsListPage({ logs }) {
                 <h3>{log.title}</h3>
                   <span>{log.date}</span>
                   <span className={`tag ${log.category}`}>{log.category}</span>
+                  <span className={`tag status-${log.status}`}>{log.status}</span>
                 </div>
                 <p>{log.minutes} 分</p>
               </Link>

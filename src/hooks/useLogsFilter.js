@@ -25,12 +25,14 @@ const useLogsFilter = (logs, inputValue) => {
   const filteredLogs = useMemo(() => {
     const search = searchParams.get('search') || "";
     const category = searchParams.get('category') || 'all';
+    const status = searchParams.get('status') || 'all';
     const sort = searchParams.get('sort') || 'newest';
 
     let result = logs.filter(log => {
       const matchSearch = log.title.toLowerCase().includes(search.toLowerCase());
       const matchCategory = category === 'all' || log.category === category;
-      return matchSearch && matchCategory;
+      const matchStatus = status === 'all' || log.status === status;
+      return matchSearch && matchCategory && matchStatus;
     });
 
     result.sort((a, b) => {

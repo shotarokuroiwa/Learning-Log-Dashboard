@@ -58,7 +58,6 @@ const Home = ({ logs }) => {
             ))}
           </ul>
           )}
-          <p>x</p>
         </div>
       </div>
 

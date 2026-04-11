@@ -1,4 +1,5 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
+import { CATEGORYS, STATUS_LABELS} from '../utils/labels'
 
 const LogDetailsPage = ({ logs, setLogs }) => {
   const { id } = useParams();
@@ -28,8 +29,8 @@ const LogDetailsPage = ({ logs, setLogs }) => {
       <div className='detail-card'>
         <p>日付: {log.date}</p>
         <p>時間: {log.minutes}</p>
-        <p>カテゴリー: {log.category}</p>
-        <p>ステータス: {log.status}</p>
+        <p>カテゴリー: {CATEGORYS[log.category]}</p>
+        <p>ステータス: {STATUS_LABELS[log.status]}</p>
         <p>メモ: {log.memo}</p>
         <p>お気に入り: {log.favorite ? "★" : "☆" }</p>
       </div>

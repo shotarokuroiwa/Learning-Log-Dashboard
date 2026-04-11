@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Navigate } from "react-router-dom"
+import { CATEGORY_LABELS } from "../utils/labels";
 
 const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
   const [formData, setFormData] = useState(initialvalue);
@@ -30,9 +31,11 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
         <div>
           <label>カテゴリー:</label>
           <select name="category" value={formData.category} onChange={handleChange}>
-            <option value="remind">リマインド</option>
-            <option value="tech">技術学習</option>
-            <option value="meeting">ミーティング</option>
+          {CATEGORY_LABELS.map((c) => (
+          <option key={c.value} value={c.value}>
+            {c.label}
+          </option>
+          ))}
           </select>
         </div>
 
@@ -41,6 +44,15 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
           <input type="number" name="minutes" value={formData.minutes} onChange={handleChange} />
         </div>
 
+        <div>
+          <label>ステータス</label>
+          <select name="status" value={formData.status} onChange={handleChange}>
+            <option value="planned">計画中</option>
+            <option value="doing">進行中</option>
+            <option value="done">達成済み</option>
+          </select>
+        </div>
+    
         <div>
           <label>メモ:</label>
           <textarea name="memo" value={formData.memo} onChange={handleChange}></textarea>
@@ -53,7 +65,8 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
           </label>
         </div>
         <button type="submit">{buttonText}</button>
-        <Link to="/logs">キャンセル</Link>
+        <button onClick={() => Navigate(-1)}>キャンセル</button>
+
     </form>
   )
 }
