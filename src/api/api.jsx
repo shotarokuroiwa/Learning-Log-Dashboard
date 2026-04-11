@@ -7,7 +7,8 @@ const mocklogs = [
     "minutes": 90,
     "status": "planned",
     "memo": "気づきや学び",
-    "favorite": true
+    "favorite": true,
+    "isMock": true
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@ const mocklogs = [
     "minutes": 30,
     "status": "doing",
     "memo": "気づき",
-    "favorite": false
+    "favorite": false,
+    "isMock": true
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@ const mocklogs = [
     "minutes": 60,
     "status": "planned",
     "memo": "学び",
-    "favorite": false
+    "favorite": false,
+    "isMock": true
   }
 ];
 

@@ -7,20 +7,25 @@ import LogsListPage from './pages/LogsListPage'
 import NotFoundPage from './pages/NotFoundPage'
 import { useEffect, useState } from 'react'
 import fetchLogs from './api/api'
+import useLocalStorage from './hocks/useLocalStrage'
 
 function App() {
-  const [logs, setLogs] = useState([]);
+  const [logs, setLogs] = useLocalStorage('logs', []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getLogs = async () => {
         setLoading(true);
-        const data = await fetchLogs();
-        setLogs(data);
+
+        const saved = localStorage.getItem('logs');
+        if (!saved || JSON.parse(saved).length === 0) {
+          const data = await fetchLogs();
+          setLogs(data);
+        }
         setLoading(false);
     };
     getLogs();
-  }, []);
+  }, [setLogs]);
   
   if (loading) {
     return (
