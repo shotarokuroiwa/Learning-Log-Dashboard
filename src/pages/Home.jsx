@@ -35,9 +35,7 @@ const Home = ({ logs }) => {
       
   return (
     <div className="dashboard">
-      <h1>ダッシュボード</h1>
-      <Link to="/logs/new">作成</Link>
-      
+      <h1>ダッシュボード</h1>      
       <div className="tags-grid">
         <div className="card">
           <h3>合計時間</h3>

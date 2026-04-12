@@ -4,6 +4,8 @@ export const CATEGORY_LABELS = [
   { value: "infrastructure", label: "インフラ" },
   { value: "database", label: "データベース" },
   { value: "algorithm", label: "アルゴリズム" },
+  { value: "system", label: "システム" },
+  { value: "app", label: "ネイティブアプリ" },
 ];
 
 export const CATEGORIES = {
@@ -12,6 +14,8 @@ export const CATEGORIES = {
   infrastructure: "インフラ",
   database: "データベース",
   algorithm: "アルゴリズム",
+  system: "システム",
+  app: "ネイティブアプリ",
 };
 
 export const STATUS_LABELS = {

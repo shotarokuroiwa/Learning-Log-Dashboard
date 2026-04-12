@@ -40,7 +40,7 @@ const LogDetailsPage = ({ logs, setLogs }) => {
       <div className='actions'>
         <button onClick={() => navigate(`/logs/${log.id}/edit`)}>編集する</button>
         <button onClick={handleDelete}>削除する</button>
-        <button onClick={() => navigate(`/logs`)}>戻る</button>
+        <button onClick={() => navigate(-1)}>戻る</button>
       </div>
     </div>
   ) 

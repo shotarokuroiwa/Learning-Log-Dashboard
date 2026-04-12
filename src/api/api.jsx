@@ -2,7 +2,7 @@ const mocklogs = [
   {
     "id": 1,
     "title": "ミーティング",
-    "category": "remind",
+    "category": "backend",
     "date": "2026-4-10",
     "minutes": 90,
     "status": "planned",
@@ -13,7 +13,7 @@ const mocklogs = [
   {
     "id": 2,
     "title": "ミーティング",
-    "category": "remind",
+    "category": "frontend",
     "date": "2026-4-10",
     "minutes": 30,
     "status": "doing",
@@ -24,7 +24,7 @@ const mocklogs = [
   {
     "id": 3,
     "title": "会議",
-    "category": "remind",
+    "category": "backend",
     "date": "2026-4-10",
     "minutes": 60,
     "status": "planned",

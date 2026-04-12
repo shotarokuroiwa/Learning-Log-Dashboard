@@ -14,9 +14,11 @@ const CreateLogPage = ({ setLogs }) => {
 
   const init = {
     "title": "",
-    "minutes": 0,
     "category": "",
-    "status": "planned",
+    "minutes": 0,
+    "status": "planned", 
+    "date": new Date().toISOString().split('T')[0],
+    "memo": "",
     "favorite": false
   }
 
