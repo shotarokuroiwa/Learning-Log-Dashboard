@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { CATEGORY_LABELS } from "../utils/labels";
-import "./LogForm.css"
+import "./css/LogForm.css"
 
 const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
   const [formData, setFormData] = useState(initialvalue);
@@ -38,8 +38,8 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
   return (
     <form onSubmit={handleSubmit} className="log-form">
         <div>
-          {errors.title && <span className="error-message" style={{ display: "block", color: "red"}}>{errors.title}</span>} 
-          {errors.minutes && <span className="error-message" style={{ display: "block", color: "red"}}>{errors.minutes}</span>} 
+          {errors.title && <span className="error-message">{errors.title}</span>} 
+          {errors.minutes && <span className="error-message">{errors.minutes}</span>} 
         </div>
 
         <div>

@@ -1,0 +1,45 @@
+.layout-shell {
+  display: flex;
+}
+
+.layout-sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  background-color: #000000;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.layout-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.layout-main {
+  margin-left: 240px;
+  flex-grow: 1;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+.layout-nav a {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  margin: 0.5em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.layout-nav a:hover {
+  background-color: #007bff;
+}

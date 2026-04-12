@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle'
+import './css/Home.css'
+import { CATEGORIES } from '../utils/labels';
 
 const Home = ({ logs }) => {
   useDocumentTitle("ダッシュボード")
@@ -26,7 +28,7 @@ const Home = ({ logs }) => {
     // 最近のタスク
     // 新しいほうが前に来るように引き算は逆にする
     const recentLogs = [...logs]
-      .sort((a,b) => new Date(b.date) - new Date(a.date))
+      .sort((a,b) => new Date(a.date) - new Date(b.date))
       .slice(0, 10);
 
     return {totalMinutes,completeLogs, completeCount, categoryCounts, recentLogs}
@@ -34,15 +36,16 @@ const Home = ({ logs }) => {
     
       
   return (
+    <div>
+    <h1 className="homeh1">ダッシュボード</h1>      
     <div className="dashboard">
-      <h1>ダッシュボード</h1>      
       <div className="tags-grid">
         <div className="card">
           <h3>合計時間</h3>
           <p>{tags.totalMinutes} 分</p>
         </div>
 
-        <div className="card">
+        <div className="card donetask task">
           <h3>完了タスク</h3>
           {tags.completeCount === 0 ? (
             <p>完了したタスクはありません</p>
@@ -60,20 +63,20 @@ const Home = ({ logs }) => {
           )}
         </div>
       </div>
-
-      <section>
+      
+      <section className="task">
         <h3>カテゴリー別</h3>
         {Object.entries(tags.categoryCounts).map(([category, logs]) => (
           <div key={category}>
             <h4>
-              {category} ({logs.length}件)
+              {CATEGORIES[category]} ({logs.length}件)
             </h4>
             
             <ul>
               {logs.map((log) => (
                 <li key={log.id}>
                   <Link to={`/logs/${log.id}`}>
-                    {log.date}: {log.title}
+                    {log.date.slice(5)}: {log.title}
                   </Link>
                 </li>
               ))}
@@ -82,19 +85,20 @@ const Home = ({ logs }) => {
         ))}
       </section>
 
-      <section>
-        <h3>最近の記録</h3>
+      <section className="task">
+        <h3>最近のタスク</h3>
         <ul>
           {tags.recentLogs.map(log => (
             <li key={log.id}>
               <Link to={`/logs/${log.id}`}>
-                {log.date}: {log.title}
+                {log.date.slice(5)}: {log.title}
               </Link>
             </li>
           ))}
         </ul>
       </section>
     </div>
+  </div>
   );
 }
 

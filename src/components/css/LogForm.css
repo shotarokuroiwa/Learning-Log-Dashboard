@@ -1,0 +1,87 @@
+.log-form {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: #e8e6e3;
+}
+
+.log-form div {
+  margin-bottom: 16px;
+}
+
+.log-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #3d6aff;
+  text-align: left;
+}
+
+.log-form input[type="text"],
+.log-form input[type="number"],
+.log-form input[type="date"],
+.log-form select,
+.log-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #3a3f44;
+  border-radius: 6px;
+  background-color: #1f2224;
+  color: #e8e6e3;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.log-form input:focus,
+.log-form select:focus,
+.log-form textarea:focus {
+  border-color: #4f46e5;
+}
+
+.log-form .error-message {
+  display: block;
+  font-size: 0.9em;
+  color: #ff6b6b;
+  margin-bottom: 6px;
+}
+
+.log-form .input-error {
+  border: 1px solid #ff4d4f !important;
+}
+
+.log-form input[type="checkbox"] {
+  margin-right: 6px;
+  accent-color: #4f46e5;
+}
+
+.log-form button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.log-form button[type="submit"] {
+  background-color: #4f46e5;
+  color: white;
+  width: 100%;
+}
+
+.log-form button[type="submit"]:hover {
+  background-color: #382e9b;
+}
+
+.log-form button[type="button"] {
+  background-color: #2f3336;
+  color: #e8e6e3;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.log-form button[type="button"]:hover {
+  background-color: #3a3f44;
+}

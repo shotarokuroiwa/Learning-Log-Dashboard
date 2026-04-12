@@ -1,0 +1,60 @@
+.dashboard {
+  display: flex;
+  align-items: stretch;
+  gap: 15px;
+  margin-top: 70px;
+}
+
+.dashboard h3 {
+  color: #3d6aff;
+}
+
+.tags-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  border: 1px solid #6b737b;
+  border-radius: 8px;
+  padding: 0.5em;
+  width: 150px;
+}
+
+.donetask {
+  flex: 1;
+}
+
+.dashboard section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  border: 1px solid #6b737b;
+  border-radius: 8px;
+  padding: 0.5em;
+}
+
+.task li {
+  border: 1px solid #3a3f44;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.task a {
+  display: block;
+  text-decoration: none;
+  margin: 8px 0;
+}
+
+.task li:hover {
+  background-color: rgb(71, 71, 71);
+}
+
+.onecategory {
+  border: 1px solid #3a3f44;
+  border-radius: 8px;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}

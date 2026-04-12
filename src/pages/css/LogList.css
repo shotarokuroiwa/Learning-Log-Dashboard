@@ -1,0 +1,62 @@
+.logs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.log-item-card a {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  border: 1px solid #3a3f44;
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.log-item-card a:hover {
+  background-color: #383838;
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.log-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #3d6aff;
+}
+
+.filter-controls input {
+  display: block;
+  width: 100%;
+  padding: 20px 12px;
+  border: 1px solid #3d6aff;
+  border-radius: 8px;
+  background-color: rgb(34, 34, 34);
+  outline: none;
+  margin-top: 70px;
+}
+
+.filter-controls input:focus {
+  border-color: #6b8dff;
+}
+
+.select-tab {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-controls select {
+  flex: 1;
+  border: 1px solid #818181;
+  border-radius: 8px;
+  margin: 10px 5px;
+  padding: 15px 10px;
+  background-color: black;
+}

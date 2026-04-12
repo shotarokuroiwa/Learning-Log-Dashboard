@@ -1,0 +1,65 @@
+.detail-card {
+  max-width: 700px;
+  margin: 20px auto;
+  margin-top: 70px;
+}
+
+.detail-card label {
+  display: block;
+  text-align: left;
+  color: #3d6aff;
+}
+
+.detail-card p {
+  border: 1px solid #3a3f44;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 7px;
+  width: 100%;
+  text-align: left;
+  color: rgb(105, 105, 105);
+  box-sizing: border-box;
+}
+
+.actions {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.actions button {
+  width: 100%;
+  display: block;
+  border: 1px solid #3d6aff;
+  border-radius: 8px;
+  background-color: #3d6aff;
+  color: white;
+  max-width: 700px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.actions button:hover {
+  background-color: #375acc;
+}
+
+.actions button.delete {
+  background-color: rgb(197, 60, 60);
+  border: 1px solid rgb(197, 60, 60);
+}
+
+.actions button.delete:hover {
+  background-color: rgb(142, 50, 50);
+}
+
+.actions button.back {
+  background-color: #2f3336;
+  border: 1px solid #2f3336;
+}
+
+.actions button.back:hover {
+  background-color: #474b4f;
+}
+
+.actions button:hover {
+  cursor: pointer;
+}

@@ -14,7 +14,7 @@ const CreateLogPage = ({ setLogs }) => {
 
   const init = {
     "title": "",
-    "category": "",
+    "category": "backend",
     "minutes": 0,
     "status": "planned", 
     "date": new Date().toISOString().split('T')[0],

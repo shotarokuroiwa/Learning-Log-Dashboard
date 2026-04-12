@@ -1,6 +1,7 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { CATEGORIES, STATUS_LABELS} from '../utils/labels'
 import useDocumentTitle from '../hooks/useDocumentTitle'
+import './css/LogDetails.css'
 
 const LogDetailsPage = ({ logs, setLogs }) => {
   useDocumentTitle("詳細")
@@ -29,18 +30,36 @@ const LogDetailsPage = ({ logs, setLogs }) => {
     <div>
       <h1>{log.title}</h1>
       <div className='detail-card'>
-        <p>日付: {log.date}</p>
-        <p>時間: {log.minutes}</p>
-        <p>カテゴリー: {CATEGORIES[log.category]}</p>
-        <p>ステータス: {STATUS_LABELS[log.status]}</p>
-        <p>メモ: {log.memo}</p>
-        <p>お気に入り: {log.favorite ? "★" : "☆" }</p>
+        <div>
+          <label>日付:</label>
+          <p>{log.date}</p>
+        </div>
+        <div>
+          <label>カテゴリー:</label>
+          <p>{CATEGORIES[log.category]}</p>
+        </div>
+        <div>
+          <label>時間:</label>
+          <p>{log.minutes}</p>
+        </div>
+        <div>
+          <label>ステータス:</label>
+          <p>{STATUS_LABELS[log.status]}</p>
+        </div>
+        <div>
+          <label>メモ:</label>
+          <p>{log.memo}</p>
+        </div>
+        <div>
+          <label>お気に入り:</label>
+          <p>{log.favorite ? "〇" : "✕"}</p>
+        </div>
       </div>
 
       <div className='actions'>
         <button onClick={() => navigate(`/logs/${log.id}/edit`)}>編集する</button>
-        <button onClick={handleDelete}>削除する</button>
-        <button onClick={() => navigate(-1)}>戻る</button>
+        <button className="delete" onClick={handleDelete}>削除する</button>
+        <button className="back" onClick={() => navigate(-1)}>戻る</button>
       </div>
     </div>
   ) 
