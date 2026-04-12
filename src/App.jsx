@@ -11,15 +11,15 @@ import useLocalStorage from './hooks/useLocalStrage'
 import Layout from './components/Layout'
 
 function App() {
-  const [logs, setLogs] = useLocalStorage('logs', []);
+  const [JSONerror, setJSONError] = useState(null)
+  const [logs, setLogs] = useLocalStorage('logs', [], setJSONError);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getLogs = async () => {
         setLoading(true);
 
-        const saved = localStorage.getItem('logs');
-        if (!saved || JSON.parse(saved).length === 0) {
+        if (logs.length === 0) {
           const data = await fetchLogs();
           setLogs(data);
         }
@@ -27,6 +27,10 @@ function App() {
     };
     getLogs();
   }, [setLogs]);
+
+  if (JSONerror) {
+    return <div style={{ color: "red" }}>{JSONerror}</div>;
+  } 
   
   if (loading) {
     return (

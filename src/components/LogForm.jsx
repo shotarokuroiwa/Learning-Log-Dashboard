@@ -1,26 +1,50 @@
 import { useState } from "react"
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { CATEGORY_LABELS } from "../utils/labels";
+import "./LogForm.css"
 
 const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
   const [formData, setFormData] = useState(initialvalue);
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
     setFormData((prev) => ({...prev, [name]: type === 'checkbox' ? checked : value,}));
-  }
+  };
+
+  const validate = () => {
+    const Errors = {};
+
+    if (!formData.title.trim()) {
+      Errors.title = "タイトルは必須です";
+    }
+    if (formData.minutes <= 0) {
+      Errors.minutes = "時間は1分以上を入力してください";
+    }
+    setErrors(Errors);
+    return Object.keys(Errors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData)
+    const isValid = validate();
+    if (!isValid) return; 
+    onSubmit(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="log-form">
+        <div>
+          {errors.title && <span className="error-message" style={{ display: "block", color: "red"}}>{errors.title}</span>} 
+          {errors.minutes && <span className="error-message" style={{ display: "block", color: "red"}}>{errors.minutes}</span>} 
+        </div>
+
         <div>
           <label>タイトル:</label>
-          <input name="title" value={formData.title} onChange={handleChange} />
+          <input type="text" name="title" value={formData.title} onChange={handleChange} className={errors.title ? "input-error" : ""} />
         </div>
         
         <div>
@@ -41,7 +65,7 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
 
         <div>
           <label>時間 (分):</label>
-          <input type="number" name="minutes" value={formData.minutes} onChange={handleChange} />
+          <input type="number" name="minutes" value={formData.minutes} onChange={handleChange} className={errors.minutes ? "input-error" : ""} /> 
         </div>
 
         <div>
@@ -65,7 +89,7 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
           </label>
         </div>
         <button type="submit">{buttonText}</button>
-        <button onClick={() => Navigate(-1)}>キャンセル</button>
+        <button type="button" onClick={() => navigate(-1)}>キャンセル</button>
 
     </form>
   )
