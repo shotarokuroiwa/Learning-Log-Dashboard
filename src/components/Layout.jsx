@@ -1,5 +1,5 @@
-import { Link, Outlet } from 'react-router-dom';
-import './css/Layout.css'
+import { Link, Outlet } from "react-router-dom";
+import "./css/Layout.css";
 
 const Layout = () => {
   return (
@@ -18,6 +18,6 @@ const Layout = () => {
       </main>
     </div>
   );
-}
+};
 
 export default Layout;

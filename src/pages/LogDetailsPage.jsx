@@ -1,10 +1,10 @@
-import { useParams, useNavigate, Link } from 'react-router-dom'
-import { CATEGORIES, STATUS_LABELS} from '../utils/labels'
-import useDocumentTitle from '../hooks/useDocumentTitle'
-import './css/LogDetails.css'
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { CATEGORIES, STATUS_LABELS } from "../utils/labels";
+import useDocumentTitle from "../hooks/useDocumentTitle";
+import "./css/LogDetails.css";
 
 const LogDetailsPage = ({ logs, setLogs }) => {
-  useDocumentTitle("詳細")
+  useDocumentTitle("詳細");
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const LogDetailsPage = ({ logs, setLogs }) => {
   return (
     <div>
       <h1>{log.title}</h1>
-      <div className='detail-card'>
+      <div className="detail-card">
         <div>
           <label>日付:</label>
           <p>{log.date}</p>
@@ -56,13 +56,19 @@ const LogDetailsPage = ({ logs, setLogs }) => {
         </div>
       </div>
 
-      <div className='actions'>
-        <button onClick={() => navigate(`/logs/${log.id}/edit`)}>編集する</button>
-        <button className="delete" onClick={handleDelete}>削除する</button>
-        <button className="back" onClick={() => navigate(-1)}>戻る</button>
+      <div className="actions">
+        <button onClick={() => navigate(`/logs/${log.id}/edit`)}>
+          編集する
+        </button>
+        <button className="delete" onClick={handleDelete}>
+          削除する
+        </button>
+        <button className="back" onClick={() => navigate(-1)}>
+          戻る
+        </button>
       </div>
     </div>
-  ) 
-}
+  );
+};
 
-export default LogDetailsPage
+export default LogDetailsPage;

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
 const useDocumentTitle = (title) => {
   const defaultTitle = useRef(document.title);
@@ -9,7 +9,7 @@ const useDocumentTitle = (title) => {
     return () => {
       document.title = defaultTitle.current;
     };
-  },[title]);
+  }, [title]);
 };
 
 export default useDocumentTitle;

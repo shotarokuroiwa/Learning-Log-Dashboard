@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 const useLocalStorage = (key, initialvalue, setJSONError) => {
   const [value, setValue] = useState(() => {
@@ -14,11 +14,11 @@ const useLocalStorage = (key, initialvalue, setJSONError) => {
     try {
       localStorage.setItem(key, JSON.stringify(value));
     } catch {
-      setJSONError("LocalStrageエラー")
+      setJSONError("LocalStrageエラー");
     }
   }, [key, value]);
-    
-  return [value, setValue];
-}
 
-export default useLocalStorage
+  return [value, setValue];
+};
+
+export default useLocalStorage;

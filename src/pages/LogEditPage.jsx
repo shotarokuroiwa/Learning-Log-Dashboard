@@ -1,9 +1,9 @@
-import { useNavigate, useParams, Link } from 'react-router-dom'
-import LogForm from '../components/LogForm';
-import useDocumentTitle from '../hooks/useDocumentTitle'
+import { useNavigate, useParams, Link } from "react-router-dom";
+import LogForm from "../components/LogForm";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const LogEditPage = ({ logs, setLogs }) => {
-  useDocumentTitle("編集")
+  useDocumentTitle("編集");
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -18,23 +18,28 @@ const LogEditPage = ({ logs, setLogs }) => {
     );
   }
 
-  const handleUpdate = (input) => {    
-    setLogs((prev) => prev.map((log) => 
-      log.id === Number(id) ? {...input, minutes: Number(input.minutes)}: log)); 
-    
-    navigate(`/logs/${id}`)
+  const handleUpdate = (input) => {
+    setLogs((prev) =>
+      prev.map((log) =>
+        log.id === Number(id)
+          ? { ...input, minutes: Number(input.minutes) }
+          : log,
+      ),
+    );
+
+    navigate(`/logs/${id}`);
   };
-  
+
   return (
     <div>
-      <h1>タスクの編集</h1>   
+      <h1>タスクの編集</h1>
       <LogForm
         initialvalue={log}
         onSubmit={handleUpdate}
         buttonText="更新する"
       />
     </div>
-  )
-}
+  );
+};
 
-export default LogEditPage
+export default LogEditPage;
