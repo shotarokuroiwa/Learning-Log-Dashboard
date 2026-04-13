@@ -26,7 +26,6 @@ const Home = ({ logs }) => {
     }, {})
 
     // 最近のタスク
-    // 新しいほうが前に来るように引き算は逆にする
     const recentLogs = [...logs]
       .sort((a,b) => new Date(a.date) - new Date(b.date))
       .slice(0, 10);

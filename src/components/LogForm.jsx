@@ -8,7 +8,6 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -20,6 +19,9 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
 
     if (!formData.title.trim()) {
       Errors.title = "タイトルは必須です";
+    }
+    if (formData.date < initialvalue.date) {
+      Errors.date = "日付は今日以降を入力してください"
     }
     if (formData.minutes <= 0) {
       Errors.minutes = "時間は1分以上を入力してください";
@@ -39,6 +41,7 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
     <form onSubmit={handleSubmit} className="log-form">
         <div>
           {errors.title && <span className="error-message">{errors.title}</span>} 
+          {errors.date && <span className="error-message">{errors.date}</span>} 
           {errors.minutes && <span className="error-message">{errors.minutes}</span>} 
         </div>
 
@@ -49,7 +52,7 @@ const LogForm = ({ initialvalue, onSubmit, buttonText }) => {
         
         <div>
           <label>日付:</label>
-          <input type="date" name="date" value={formData.date} onChange={handleChange} />
+          <input type="date" name="date" value={formData.date} onChange={handleChange} className={errors.date ? "input-error" : ""} />
         </div>
 
         <div>

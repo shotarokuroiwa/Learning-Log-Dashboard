@@ -27,7 +27,7 @@ const LogEditPage = ({ logs, setLogs }) => {
   
   return (
     <div>
-      <h1>ログの編集</h1>   
+      <h1>タスクの編集</h1>   
       <LogForm
         initialvalue={log}
         onSubmit={handleUpdate}

@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import  useDebounce from './useDebounce';
 
@@ -6,20 +6,22 @@ const useLogsFilter = (logs, inputValue) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const debouncedSearch = useDebounce(inputValue, 500);
 
-  // URLパラメータを更新する内部関数
-  const updateParams = (key, value) => {
-    const newParams = new URLSearchParams(searchParams);
-    if (!value || value === 'all') {
-      newParams.delete(key);
-    } else {
-      newParams.set(key, value);
-    }
-    setSearchParams(newParams, { replace: true });
-  };
+  const updateParams = useCallback(
+    (key, value) => {
+      const newParams = new URLSearchParams(searchParams);
+      if (!value || value === 'all') {
+        newParams.delete(key);
+      } else {
+        newParams.set(key, value);
+      }
+      setSearchParams(newParams, { replace: true });
+    },
+    [searchParams, setSearchParams]
+  );
 
   useEffect(() => {
     updateParams('search', debouncedSearch);
-  }, [debouncedSearch]);
+  }, [debouncedSearch, updateParams]);
 
   // フィルタリングとソート
   const filteredLogs = useMemo(() => {

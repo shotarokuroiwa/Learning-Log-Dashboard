@@ -52,7 +52,7 @@ const LogDetailsPage = ({ logs, setLogs }) => {
         </div>
         <div>
           <label>お気に入り:</label>
-          <p>{log.favorite ? "〇" : "✕"}</p>
+          <p>{log.favorite ? "○" : "✕"}</p>
         </div>
       </div>
 
