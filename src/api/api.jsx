@@ -1,36 +1,33 @@
 const mocklogs = [
   {
     "id": 1,
-    "title": "ミーティング",
+    "title": "サンプル１",
     "category": "backend",
-    "date": "2026-4-10",
+    "date": "2026-4-12",
     "minutes": 90,
     "status": "planned",
     "memo": "気づきや学び",
     "favorite": true,
-    "isMock": true
   },
   {
     "id": 2,
-    "title": "ミーティング",
+    "title": "サンプル２",
     "category": "frontend",
     "date": "2026-4-10",
     "minutes": 30,
     "status": "doing",
     "memo": "気づき",
     "favorite": false,
-    "isMock": true
   },
   {
     "id": 3,
-    "title": "会議",
+    "title": "サンプル３",
     "category": "backend",
-    "date": "2026-4-10",
+    "date": "2026-4-11",
     "minutes": 60,
-    "status": "planned",
+    "status": "done",
     "memo": "学び",
     "favorite": false,
-    "isMock": true
   }
 ];
 

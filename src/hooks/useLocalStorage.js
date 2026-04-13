@@ -5,17 +5,19 @@ const useLocalStorage = (key, initialvalue, setJSONError) => {
     try {
       const saved = localStorage.getItem(key);
       return saved ? JSON.parse(saved) : initialvalue;
-    } catch (e) {
-      setJSONError("LocalStrageエラー")
+    } catch {
       return initialvalue;
     }
   });
 
   useEffect(() => {
-    const onlyUserLogs = value.filter(log => !log.isMock); //mockデータは除外
-    localStorage.setItem(key, JSON.stringify(onlyUserLogs));
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch {
+      setJSONError("LocalStrageエラー")
+    }
   }, [key, value]);
-
+    
   return [value, setValue];
 }
 
