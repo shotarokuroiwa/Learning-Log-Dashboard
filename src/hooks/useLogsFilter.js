@@ -14,7 +14,9 @@ const useLogsFilter = (logs, inputValue) => {
           newParams.delete(key);
         } else {
           newParams.set(key, value);
-      }}, { replace: true });
+        }
+        return newParams
+    }, { replace: true });
     },[setSearchParams]);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ const useLogsFilter = (logs, inputValue) => {
     return result;
   }, [logs, searchParams]);
 
-  return { filteredLogs, updateParams, searchParams };
+  return { filteredLogs, updateParams };
 };
 
 export default useLogsFilter;

@@ -63,7 +63,7 @@ const LogDetailsPage = ({ logs, setLogs }) => {
         <button className="delete" onClick={handleDelete}>
           削除する
         </button>
-        <button className="back" onClick={() => navigate(-1)}>
+        <button className="back" onClick={() => navigate(`/logs/`)}>
           戻る
         </button>
       </div>
