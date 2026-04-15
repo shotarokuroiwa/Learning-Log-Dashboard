@@ -8,7 +8,7 @@ const Layout = () => {
         <h2>Learning Log Dashboard</h2>
         <nav className="layout-nav">
           <Link to="/">ダッシュボード</Link>
-          <Link to="/logs">タスク一覧</Link>
+          <Link to="/logs">ログ一覧</Link>
           <Link to="/logs/new">新規作成</Link>
         </nav>
       </aside>

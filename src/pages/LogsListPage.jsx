@@ -6,7 +6,7 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import "./css/LogList.css";
 
 function LogsListPage({ logs }) {
-  useDocumentTitle("タスク一覧");
+  useDocumentTitle("ログ一覧");
   const [searchParams] = useSearchParams();
   const query = searchParams.get("search") || "";
   const [inputValue, setInputValue] = useState(query);
@@ -15,7 +15,7 @@ function LogsListPage({ logs }) {
 
   return (
     <div className="logs-container">
-      <h1>タスク一覧</h1>
+      <h1>ログ一覧</h1>
       <div className="filter-controls">
         <input
           type="text"

@@ -32,7 +32,7 @@ const LogEditPage = ({ logs, setLogs }) => {
 
   return (
     <div>
-      <h1>タスクの編集</h1>
+      <h1>ログの編集</h1>
       <LogForm
         key={log.id}
         initialvalue={log}

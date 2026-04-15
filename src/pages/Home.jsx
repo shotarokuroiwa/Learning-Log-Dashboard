@@ -10,13 +10,13 @@ const Home = ({ logs }) => {
     // 合計時間
     const totalMinutes = logs.reduce((sum, log) => sum + log.minutes, 0);
 
-    // 完了タスク
+    // 完了ログ
     const completeLogs = logs.filter((log) => log.status === "done");
 
-    // 完了タスク件数
+    // 完了ログ件数
     const completeCount = completeLogs.length;
 
-    // カテゴリ別タスク分け
+    // カテゴリ別ログ分け
     const categoryCounts = logs.reduce((sum, log) => {
       const key = log.category;
 
@@ -25,9 +25,9 @@ const Home = ({ logs }) => {
       return sum;
     }, {});
 
-    // 最近のタスク
+    // 最近のログ（日付が新しい順）
     const recentLogs = [...logs]
-      .sort((a, b) => new Date(a.date) - new Date(b.date))
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
       .slice(0, 10);
 
     return {
@@ -50,9 +50,9 @@ const Home = ({ logs }) => {
           </div>
 
           <div className="card donetask task">
-            <h3>完了タスク</h3>
+            <h3>完了ログ</h3>
             {tags.completeCount === 0 ? (
-              <p>完了したタスクはありません</p>
+              <p>完了したログはありません</p>
             ) : (
               <ul>
                 <p>{tags.completeCount} 件</p>
@@ -88,7 +88,7 @@ const Home = ({ logs }) => {
         </section>
 
         <section className="task">
-          <h3>最近のタスク</h3>
+          <h3>最近のログ</h3>
           <ul>
             {tags.recentLogs.map((log) => (
               <li key={log.id}>
