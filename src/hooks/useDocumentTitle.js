@@ -7,7 +7,7 @@ const useDocumentTitle = (title) => {
     document.title = `${title} | Learning Log Dashboard`;
 
     return () => {
-      document.title = defaultTitle.current;
+      document.title = defaultTitle.current; //この関数を呼び出していないページでデフォルト名を表示
     };
   }, [title]);
 };

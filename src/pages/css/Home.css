@@ -45,7 +45,7 @@
 .task a {
   display: block;
   text-decoration: none;
-  margin: 8px 0;
+  padding: 8px 0;
 }
 
 .task li:hover {

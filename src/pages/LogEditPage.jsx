@@ -34,6 +34,7 @@ const LogEditPage = ({ logs, setLogs }) => {
     <div>
       <h1>タスクの編集</h1>
       <LogForm
+        key={log.id}
         initialvalue={log}
         onSubmit={handleUpdate}
         buttonText="更新する"

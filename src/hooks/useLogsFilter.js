@@ -8,16 +8,14 @@ const useLogsFilter = (logs, inputValue) => {
 
   const updateParams = useCallback(
     (key, value) => {
-      const newParams = new URLSearchParams(searchParams);
-      if (!value || value === "all") {
-        newParams.delete(key);
-      } else {
-        newParams.set(key, value);
-      }
-      setSearchParams(newParams, { replace: true });
-    },
-    [searchParams, setSearchParams],
-  );
+      setSearchParams((prev) => {
+        const newParams = new URLSearchParams(prev);
+        if (!value || value === "all") {
+          newParams.delete(key);
+        } else {
+          newParams.set(key, value);
+      }}, { replace: true });
+    },[setSearchParams]);
 
   useEffect(() => {
     updateParams("search", debouncedSearch);
