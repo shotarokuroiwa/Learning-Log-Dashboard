@@ -23,7 +23,7 @@ const Home = ({ logs }) => {
       !sum[key] && (sum[key] = []);
       sum[key].push(log);
       return sum;
-    }, [logs]);
+    }, {});
 
     // 最近のログ（日付が新しい順）
     const recentLogs = [...logs]
